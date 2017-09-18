@@ -23,6 +23,8 @@ shinyUI(fluidPage(
                         tags$p("2. Na primeira coluna digite as palavras"),
                         tags$p("3. Na segunda coluna você pode inserir valores para dizer o tamanho das palavras"),
                         tags$p("4. Salve em uma pasta e faça o upload aqui."),
+                        tags$p("5. Clique em atualizar para mudar a nuvem"),
+                        tags$p("4. Clique com o botão direito do mouse >> salvar imagem como"),
                         tags$a(href="http://www.delermando.com.br/portfolio", "The Scientist")
                )
        )
