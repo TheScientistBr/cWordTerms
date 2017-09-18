@@ -1,0 +1,12 @@
+name: MyWordCloud
+title: MyWordCloud
+username:
+account: delermando
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 216213
+bundleId: 986870
+url: https://delermando.shinyapps.io/MyWordCloud/
+when: 1505772530.21661
+asMultiple: FALSE
+asStatic: FALSE
