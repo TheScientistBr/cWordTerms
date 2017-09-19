@@ -2,7 +2,6 @@
 library("shiny")
 library("wordcloud2")
 library("xlsx")
-library("shinyjs")
 
 shinyServer(function(input, output, session) {
         myTable  <- reactive({
@@ -14,18 +13,12 @@ shinyServer(function(input, output, session) {
         output$distTable <- renderTable({
                 myDataset <- myTable()
                 colnames(myDataset) <- c("Palavra","Valor")
-                if(input$auto){
-                        myDataset$Valor <- nrow(myDataset):1
-                }
                 head(myDataset)
         })
-
-        output$distPlot <- renderWordcloud2({
+        
+        output$wordcloud2 <- renderWordcloud2({
                 myDataset <- myTable()
                 colnames(myDataset) <- c("Palavra","Valor")
-                if(input$auto){
-                        myDataset$Valor <- nrow(myDataset):1
-                }
                 atualiza <- input$update
                 giro <- input$giro
                 rota <- input$rota
@@ -33,13 +26,10 @@ shinyServer(function(input, output, session) {
                 cFundo <- input$cFundo
                 forma <- input$forma
                 wordcloud2(myDataset,backgroundColor = cFundo, 
-                           minRotation = -pi/rota, maxRotation = pi/rota,
+                           minRotation = -pi/rota[1], maxRotation = -pi/rota[2],
                            rotateRatio = giro,
                            shape = forma, size = 0.5,
                            color = "random-light")
-                #wordcloud(myDataset$Palavra,myDataset$Valor, scale=c(3,.1),min.freq=1,
-                #                max.words=nrow(myDataset), random.order=FALSE, rot.per=.35,
-                #               colors=brewer.pal(cores,"Dark2"),minRotation = pi/giro)
         })
 })
 
