@@ -1,4 +1,5 @@
 library(shiny)
+
 shinyUI(fluidPage(
   titlePanel("Criando minha Nuvem de Palavras"),
   sidebarLayout(
@@ -10,15 +11,31 @@ shinyUI(fluidPage(
             tags$hr(),
             fileInput("file1", "Arquivo Excel", multiple = FALSE),
             checkboxInput('auto', 'Tamanho automático', FALSE),
-            sliderInput("cores", label = h4("Cores"), min = 1, 
-                        max = 8, value = 5),
+            sliderInput("rota", label = h4("Rotação"), min = 1, 
+                        max = 8, value = 6),
+            sliderInput("giro", label = h4("Giro"), min = 1, 
+                        max = 8, value = 1),
+            radioButtons("forma", "Forma da Nuvem",
+                         choices = list("cardioid" = "cardioid",
+                           "diamond" = "diamond",
+                           "triangle-forward" = "triangle-forward",
+                           "triangle" = "triangle",
+                           "pentagon" = "pentagon",
+                           "star" = "star"),
+                         selected = "cardioid"),                           
+            radioButtons("cFundo", "Cor de Fundo",
+                         choices = list("Branco" = "white",
+                           "Cinza" = "grey",
+                           "Rosa" = "pink",
+                           "Preta" = "black"),
+                         selected = "white"),
             actionButton("update", "Reorganizar")
             ),
     
     # Show a plot of the generated distribution
     mainPanel(
             tableOutput("distTable"),
-            plotOutput("distPlot"),
+            wordcloud2Output("distPlot"),
             fluidPage(
                titlePanel("Instruções"),
                tags$div(class="header", checked=NA,
