@@ -11,17 +11,23 @@ shinyServer(function(input, output, session) {
         })
                 
         output$distTable <- renderTable({
-                myWords <- myTable()
-                colnames(myWords) <- c("Palavra","Valor")
-                return(head(myWords))
+                myDataset <- myTable()
+                colnames(myDataset) <- c("Palavra","Valor")
+                if(input$auto){
+                        myDataset$Valor <- nrow(myDataset):1
+                }
+                return(head(myDataset))
         })
         
         output$distPlot <- renderPlot({
-                myWords <- myTable()
-                colnames(myWords) <- c("Palavra","Valor")
+                myDataset <- myTable()
+                colnames(myDataset) <- c("Palavra","Valor")
+                if(input$auto){
+                        myDataset$Valor <- nrow(myDataset):1
+                }
                 atualiza <- input$update
-                wordcloud(myWords$Palavra,myWords$Valor, scale=c(3,.1),min.freq=1,
-                                 max.words=nrow(myWords), random.order=FALSE, rot.per=.35,
+                wordcloud(myDataset$Palavra,myDataset$Valor, scale=c(3,.1),min.freq=1,
+                                 max.words=nrow(myDataset), random.order=FALSE, rot.per=.35,
                                  colors=brewer.pal(8,"Dark2"))
         })
 })

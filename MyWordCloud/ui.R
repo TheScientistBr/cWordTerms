@@ -9,6 +9,7 @@ shinyUI(fluidPage(
             tags$p("Delermando Branquinho Filho"),
             tags$hr(),
             fileInput("file1", "Arquivo Excel", multiple = FALSE),
+            checkboxInput('auto', 'Tamanho automático', FALSE),
             actionButton("update", "Reorganizar")
             ),
     
