@@ -5,8 +5,8 @@ account: delermando
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 216213
-bundleId: 988419
+bundleId: 988456
 url: https://delermando.shinyapps.io/MyWordCloud/
-when: 1505853062.6879
+when: 1505854467.94489
 asMultiple: FALSE
 asStatic: FALSE
