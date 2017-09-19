@@ -10,6 +10,8 @@ shinyUI(fluidPage(
             tags$hr(),
             fileInput("file1", "Arquivo Excel", multiple = FALSE),
             checkboxInput('auto', 'Tamanho automático', FALSE),
+            sliderInput("cores", label = h4("Cores"), min = 1, 
+                        max = 8, value = 5),
             actionButton("update", "Reorganizar")
             ),
     

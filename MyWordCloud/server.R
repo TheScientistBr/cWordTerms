@@ -26,9 +26,10 @@ shinyServer(function(input, output, session) {
                         myDataset$Valor <- nrow(myDataset):1
                 }
                 atualiza <- input$update
+                cores <- input$cores
                 wordcloud(myDataset$Palavra,myDataset$Valor, scale=c(3,.1),min.freq=1,
                                  max.words=nrow(myDataset), random.order=FALSE, rot.per=.35,
-                                 colors=brewer.pal(8,"Dark2"))
+                                 colors=brewer.pal(cores,"Dark2"))
         })
 })
 
