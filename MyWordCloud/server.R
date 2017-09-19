@@ -13,6 +13,10 @@ shinyServer(function(input, output, session) {
         output$distTable <- renderTable({
                 myDataset <- myTable()
                 colnames(myDataset) <- c("Palavra","Valor")
+                auto <- input$auto
+                if(auto) {
+                        myDataset$Valor <- nrow(myDataset):1
+                }
                 head(myDataset)
         })
         
@@ -25,6 +29,10 @@ shinyServer(function(input, output, session) {
                 giro <- input$giro
                 cFundo <- input$cFundo
                 forma <- input$forma
+                auto <- input$auto
+                if(auto) {
+                        myDataset$Valor <- nrow(myDataset):1
+                }
                 wordcloud2(myDataset,backgroundColor = cFundo, 
                            minRotation = -pi/rota[1], maxRotation = -pi/rota[2],
                            rotateRatio = giro,

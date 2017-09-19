@@ -11,6 +11,7 @@ shinyUI(fluidPage(
             tags$p("Delermando Branquinho Filho"),
             tags$hr(),
             fileInput("file1", "Arquivo Excel", multiple = FALSE),
+            checkboxInput("auto", "Tamanho automático das palavras", FALSE),
             sliderInput("rota", label = h4("Rotação"), min = 1, 
                         max = 8, value = 5:6),
             sliderInput("giro", label = h4("Giro"), min = 1, 
@@ -39,7 +40,7 @@ shinyUI(fluidPage(
             fluidPage(
                titlePanel("Instruções"),
                tags$div(class="header", checked=NA,
-                        tags$p("1. Crie um arquivo no Excel com até 300 palavras."),
+                        tags$p("1. Crie um arquivo no Excel quanto mais palavras melhor"),
                         tags$p("2. Na primeira coluna digite as palavras"),
                         tags$p("3. Na segunda coluna você pode inserir valores para dizer o tamanho das palavras"),
                         tags$p("4. Salve em uma pasta e faça o upload aqui."),
