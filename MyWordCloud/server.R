@@ -34,7 +34,7 @@ shinyServer(function(input, output, session) {
                         myDataset$Valor <- as.numeric(nrow(myDataset):1)
                 }
                 wordcloud2(myDataset,backgroundColor = cFundo, 
-                           minRotation = -pi/rota[1], maxRotation = -pi/rota[2],
+                           minRotation = -pi/rota[1], maxRotation = pi/rota[2],
                            rotateRatio = giro,
                            shape = forma, size = 0.5,
                            color = "random-light")
